@@ -1,66 +1,32 @@
-// let x = parseInt(prompt(`Number`));
-// let color = prompt('Enter color', '515151');
-// let text = 'Heading';
-// sum = x + 10;
+let userName = prompt('What is your name', '').trim();
+userName = userName[0].toUpperCase() + userName.slice(1).toLowerCase();
 
-// document.write(`<h3 style="color: #${color}">${text}, ${sum}</h3>`);
+let lastName = prompt('What is your last name', '').trim();
+lastName = lastName[0].toUpperCase() + lastName.slice(1).toLowerCase();
 
+let userEmail = prompt('Enter your Email', "").replaceAll().toLowerCase();
 
-// S = +234.65125411.toFixed(1);
-// console.log(S);
+let dateOfBirth = +prompt('Enter your date of birth', "");
+let today = new Date();
+thisYear = today.getFullYear();
+age = thisYear - dateOfBirth;
 
-// result = 20*'30'+'100'*2;
-// console.log(result);
-
-// x = 30;
-// y = 20;
-
-// if(x < y) {
-//     console.log(`Yes, ${x} < ${y}.`);
-//     result = x+y;
-// } else {
-//     console.log(`NO, ${x} > ${y}.`);
-//     result = x*y;
-// }
-
-// console.log(result);
-
-
-
-// let userAge = +prompt("Enter your age", 18);
-// if (userAge <= 17) {
-//     alert("Go back soon");
-// } else {
-//     alert("Welcome to the club");
-// }
-
-// let firstNumber = prompt('enter number', 1);
-// let secondNumber = +prompt('enter number', 1);
-
-// if (firstNumber == secondNumber) {
-//     console.log('yes')
-// } else {
-//         console.log('no')
-//     }
-
-// if (firstNumber === secondNumber) {
-//         console.log('yes')
-//     } else {
-//             console.log('no')
-//         }
-
-// заполнение массива случайными числами
-
-let n = 0;
-let i, j;
-
-while(isNaN(n)) || (n < 1){
-    n = +prompt('Enter length of arr')
+if (!userEmail.includes('@')) {
+    userEmail = `not valid email <b>${userEmail}</b> (symbol @ not exist)`;
+}
+else if(userEmail.startsWith('@')) {
+    userEmail = `not valid email <b>${userEmail}</b> (symbol @ find in first place)`;
+}
+else if(userEmail.endsWith('@')) {
+    userEmail = `not valid email <b>${userEmail}</b> (symbol @ find in last place)`;
+}
+else {
+    userEmail = `<b>${userEmail}</b>`;
 }
 
-let arr = [];
-
-for (i = 0; i < n; i++) {
-    arr[i] = [];
-    console.log(arr[i])
-}
+document.write(`
+    <ul>
+        <li> Full name: <b>${userName} ${lastName}</b> </li>
+        <li> Email: ${userEmail} </li>
+        <li> Age: <b>${age}</b> </li>
+    </ul>`);
